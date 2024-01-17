@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 Route::group([
     'namespace' => 'App\Http\Controllers\Admin',
@@ -8,6 +9,8 @@ Route::group([
     Route::resource('user', 'UserController');
     Route::resource('role', 'RoleController');
     Route::resource('permission', 'PermissionController');
+    Route::resource('comic', 'ComicController');
+    Route::resource('title', 'TitleController');
     Route::resource('menu', 'MenuController')->except([
         'show'
     ]);

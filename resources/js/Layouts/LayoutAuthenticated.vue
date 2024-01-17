@@ -11,12 +11,15 @@ const layoutStore = useLayoutStore()
 </script>
 
 <template>
-  <div id="app" class="bg-gray-200">
-      <div class="container mx-auto px-4">
-          <div class="py-4">
-              <Menu></Menu>
-              <slot />
-          </div>
-      </div>
+  <div :class="{ 'dark': styleStore.darkMode, 'overflow-hidden lg:overflow-visible': layoutStore.isAsideMobileExpanded }">
+    <div
+      :class="{ 'ml-60 lg:ml-0': layoutStore.isAsideMobileExpanded }"
+      class="pt-14 xl:pl-60 w-screen transition-position lg:w-auto bg-gray-50 dark:bg-slate-800 dark:text-slate-100"
+    >
+      <NavBar :class="{ 'ml-60 lg:ml-0': layoutStore.isAsideMobileExpanded }" />
+      <AsideMenu />
+      <slot />
+      <FooterBar />
+    </div>
   </div>
 </template>
